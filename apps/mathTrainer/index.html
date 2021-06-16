@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math trainer</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header__logo">Math trainer</div>
+  </header>
+
+  <div class="menu menu_active">
+    <div class="menu__wrapper">
+      <button id="start" class="btn btn_menu">Start</button>
+      <button id="settings" class="btn btn_menu">Settings</button>
+      <button id="about" class="btn btn_menu">About</button>
+    </div>
+  </div>
+
+  <div class="settings">
+    <div class="settings__wrapper">
+      <div class="settings__level">
+        <div class="settings__name">Choose level</div>
+        <select id="level">
+          <option>Easy</option>
+          <option>Normal</option>
+          <option>Hard</option>
+        </select>
+      </div>
+      <div class="settings__theme">
+        <div class="settings__name">Choose theme</div>
+        <button id="dark" class="btn btn_theme">Dark</button>
+        <button id="light" class="btn btn_theme">Light</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="about__wrapper">
+      <div class="about__info">Math trainer is a lightweight and fast application for training oral counting. The app has several difficulty levels in which a math question is randomly generated with addition, subtraction, division, or multiplication. The app has no restrictions and no ads, you can choose how long you can train.</div>
+      <div class="about__author">
+        Developed by
+        <a href="http://swidsky.github.io/">Swidsky.</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="app">
+    <div class="app__wrapper">
+      <div class="app__problem">99 + 99 =</div>
+      <input type="number">
+    </div>
+    <div class="app__btns">
+      <button class="btn">1</button>
+      <button class="btn">2</button>
+      <button class="btn">3</button>
+      <button class="btn">4</button>
+      <button class="btn">5</button>
+      <button class="btn">6</button>
+      <button class="btn">7</button>
+      <button class="btn">8</button>
+      <button class="btn">9</button>
+      <button class="btn_del">Del</button>
+      <button class="btn">0</button>
+      <button class="btn_ok">OK</button>
+    </div>
+    <div class="app__stats">
+      <div id="correct" class="app__correct">Correct: 0</div>
+      <div id="wrong" class="app__wrong">Wrong: 0</div>
+    </div>
+  </div>
+
+
+
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
