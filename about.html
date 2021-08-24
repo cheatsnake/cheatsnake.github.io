@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About me</title>
     <link rel="shortcut icon" href="images/favicon.ico"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
@@ -18,34 +18,72 @@
 
     <div class="about">
         <div class="container">
-            <div class="title">About me</div>
+            <!-- <div class="title">About me</div> -->
             <div class="about__wrapper">
                 <div class="about__descr">
-                    <div class="about__descr__text">l‘m Yury Swiderko 20 years old Web-developer & Digital artist located in Europe, Belarus.
-                        <br>
-                        Currently, I am actively working on creating websites, developing desktop and mobile applications, as well as processing photos.
-                        <br>
-                        I like working with people who are just as passionate about creating something amazing as I am. Let's make something awesome together!</div>
+                    <h1 class="about__descr__name">Hello, I'm <br> Yury Swiderko.</h1>
+                    <div class="about__descr__text">I am a 20-year-old Web-developer & Digital artist located in Europe, Belarus. I use the <b>JavaScript</b> programming language and the <b>React JS</b> framework to create various web stuff. I also like to create the UI design for my applications myself. In my free time as a hobby I create photo manipulations with images using <b>Photoshop</b>. <br><br>
+                    Now I am actively studying backend development, as well as continuing to improve my already existing frontend development skills. If you are interested in my work or you still have any questions, please contact me in any convenient way. <br>
+                    I am always open to cooperation.
+                    </div>
                 </div>
                 <div class="about__info">
-                    <div class="about__block">
-                        <div class="about__block__titles">
-                            <div class="about__block__title">Location</div>
-                            <div class="about__block__title">Email</div>
-                            <div class="about__block__title">Social</div>
-                        </div>
-                        <div class="about__block__info">
-                            <div class="about__block__text">Europe, Belarus</div>
-                            <a href="mailto:yurace@protonmail.com" class="about__block__text">yurace@protonmail.com</a>
-                            <div class="about__block__social">
-                                <a href="https://www.instagram.com/yurace_/" class="social__item social__item_mini"><img src="images/social/instagram_black.svg" alt=""></a>
-                                <a href="https://twitter.com/yurace_" class="social__item social__item_mini"><img src="images/social/twitter_black.svg" alt=""></a>
-                                <a href="https://github.com/cheatsnake" class="social__item social__item_mini"><img src="images/social/github_black.svg" alt=""></a>
-                            </div>
+                    <a href="files/cv.pdf" class="about__info__block">
+                        <h3 class="about__info__title">General information</h3>
+                        <div class="about__info__body">Download my CV</div>
+                    </a>
+                    <a href="mailto:yury.swiderko@gmail.com" class="about__info__block">
+                        <h3 class="about__info__title">Contact me</h3>
+                        <div class="about__info__body">yury.swiderko@gmail.com</div>
+                    </a>
+                    <div class="about__info__block">
+                        <h3 class="about__info__title">Social Links</h3>
+                        <div class="about__info__wrapper">
+                            <a href="#" class="about__info__link">GitHub</a>
+                            <a href="#" class="about__info__link">Instagram</a>
+                            <a href="#" class="about__info__link">Twitter</a>
                         </div>
                     </div>
-                    <button class="btn btn_cv">Download CV</button>
                 </div>
+            </div>
+            <div class="title">My technology stack</div>
+            <div class="about__tech">
+                <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank" class="about__tech__item"><img src="images/technology/js.png" alt="JavaScript"></a>
+                <a href="https://en.wikipedia.org/wiki/HTML" target="_blank" class="about__tech__item"><img src="images/technology/html.png" alt="HTML"></a>
+                <a href="https://en.wikipedia.org/wiki/CSS" target="_blank" class="about__tech__item"><img src="images/technology/css.png" alt="CSS"></a>
+                <a href="https://sass-lang.com/" target="_blank" class="about__tech__item"><img src="images/technology/sass.png" alt="SASS"></a>
+                <a href="https://gulpjs.com/" target="_blank" class="about__tech__item"><img src="images/technology/gulp.png" alt="Gulp"></a>
+                <a href="https://getbootstrap.com/" target="_blank" class="about__tech__item"><img src="images/technology/bootstrap.png" alt="Bootstrap"></a>
+                <a href="https://reactjs.org/" target="_blank" class="about__tech__item"><img src="images/technology/reactjs.png" alt="React JS"></a>
+                <a href="https://styled-components.com/" target="_blank" class="about__tech__item"><img src="images/technology/styled-components.png" alt="Styled components"></a>
+                <a href="https://redux.js.org/" target="_blank" class="about__tech__item"><img src="images/technology/redux.png" alt="Redux"></a>
+                <a href="https://git-scm.com/" target="_blank" class="about__tech__item"><img src="images/technology/git.png" alt="Git"></a>
+                <a href="https://nodejs.org/en/" target="_blank" class="about__tech__item"><img src="images/technology/nodejs.png" alt="Node JS"></a>
+                <a href="https://material-ui.com/" target="_blank" class="about__tech__item"><img src="images/technology/matrerial-ui.png" alt="Material UI"></a>
+            </div>
+
+            <div class="title">Used software</div>
+            <div class="about__soft">
+                <a href="about.html" class="about__soft__block">
+                    <h3 class="about__info__title">IDE</h3>
+                    <div class="about__info__body">Visual Studio Code</div>
+                    <div class="about__soft__descr">My main IDE to developing apps & websites.</div>
+                </a>
+                <a href="about.html" class="about__soft__block">
+                    <h3 class="about__info__title">IDE</h3>
+                    <div class="about__info__body">Sublime text 3</div>
+                    <div class="about__soft__descr">Additional IDE to solve problems and make simple stuff.</div>
+                </a>
+                <a href="about.html" class="about__soft__block">
+                    <h3 class="about__info__title">Graphic editor</h3>
+                    <div class="about__info__body">Abobe Photoshop</div>
+                    <div class="about__soft__descr">This is the best thing that humanity has come up with.</div>
+                </a>
+                <a href="about.html" class="about__soft__block">
+                    <h3 class="about__info__title">Vector graphic editor</h3>
+                    <div class="about__info__body">Abobe Illustrator</div>
+                    <div class="about__soft__descr">Best program for vector stuff like icons.</div>
+                </a>
             </div>
         </div>
     </div>
