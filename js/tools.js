@@ -1,6 +1,8 @@
 const wrapper = document.querySelector('.apps__wrapper');
 
 const appList = [
+    {name: 'Classify', descr: 'An open source project for enrypting text messages.', img: 'images/apps/classify.jpg', appLink: 'https://classify-web.herokuapp.com', gitLink: 'classify'},
+    {name: 'xColors API', descr: 'A free API for generating and converting colors.', img: 'images/apps/xcolors-api.jpg', appLink: 'https://x-colors.herokuapp.com', gitLink: 'xColors-api'},
     {name: 'xMath API', descr: 'Free and simple API for getting random mathematical expressions.', img: 'images/apps/xmath-api.jpg', appLink: 'https://x-math.herokuapp.com', gitLink: 'xMath-api'},
     {name: 'Twitter Post', descr: 'Fake tool for simulation of sending posts on Twitter.', img: 'images/apps/twitterPosts.jpg', appLink: 'https://cheatsnake.github.io/TwitterPosts', gitLink: 'TwitterPosts'},
     {name: 'Interval Timer', descr: 'A pocket timer with settings for the number of rounds, training time and rest.', img: 'images/apps/timer.jpg', appLink: 'https://cheatsnake.github.io/IntervalTimer', gitLink: 'IntervalTimer'},
