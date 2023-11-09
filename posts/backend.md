@@ -3,8 +3,6 @@ title: Backend roadmap
 publish_date: 2023-11-09
 ---
 
-# Backend roadmap
-
 About a year and a half ago, I set out to create a some king of programming overview map focusing on topics and technologies related to server-side development. I sketched out some rough outline and started filling this project with information day by day. 
 
 [Backend cheats on GitHub](https://github.com/cheatsnake/backend-cheats)
