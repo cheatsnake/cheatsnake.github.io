@@ -1,6 +1,6 @@
 ---
 title: Self-hosted chatbot platform
-publish_date: 2023-11-09
+publish_date: 2023-11-08
 ---
 
 I recently developed a small platform that allows you to program chatbots and communicate with them. This is quite an interesting experience, as I took the project architecture, external API development, and documentation writing quite seriously.
