@@ -10,7 +10,6 @@ blog({
         { title: "GitHub", url: "https://github.com/cheatsnake" },
         { title: "Twitter", url: "https://twitter.com/yurace_" },
     ],
-    footer: <div></div>,
     avatar: "./avatar.png",
     avatarClass: "",
     author: "",
