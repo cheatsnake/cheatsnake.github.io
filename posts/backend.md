@@ -6,6 +6,7 @@ publish_date: 2023-11-09
 About a year and a half ago, I set out to create a some king of programming overview map focusing on topics and technologies related to server-side development. I sketched out some rough outline and started filling this project with information day by day. 
 
 [Backend cheats on GitHub](https://github.com/cheatsnake/backend-cheats)
+
 <img alt="screenshot" src="./assets/backend-cheats.png"/>
 
 I've categorized everything into chapters and topics. Each topic contains a brief squeeze of information, as well as links to resources where you can dive into it in detail. Some of the information was conveniently shown in pictures for better understanding. But I rarely found suitable images on the net (I always wanted to fix something), so I decided to create them from scratch. For this purpose, I even chose a fixed color palette, so that everything would be in the same style.
