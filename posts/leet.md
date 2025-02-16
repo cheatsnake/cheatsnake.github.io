@@ -28,4 +28,5 @@ Make your learning materials simple — the kind you would have dreamed of findi
 > When you start teaching others, you fill in your own gaps.
 
 Just remember the simple formula for highly effective self-learning:
-**LE** (Learn by Examples) + **E** (Employ it in practice) + **T**(Teaching others) = **LEET**
+
+**LE** (Learn by Examples) + **E** (Employ it in practice) + **T** (Teaching others) = **LEET**
