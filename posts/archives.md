@@ -1,5 +1,5 @@
 ---
-title: Archives in Linux - demystified
+title: Working with archives
 publish_date: 2025-05-26
 ---
 
