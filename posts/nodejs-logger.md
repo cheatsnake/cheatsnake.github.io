@@ -50,7 +50,7 @@ Let's modify the global behavior of these methods step by step. For convenience,
 $ touch src/utils/logger.ts
 ```
 
-1. Define constants and imports
+### Define constants and imports
 
 ```ts
 import fs from "fs";
@@ -64,7 +64,7 @@ We will use the Emoji symbol to indicate each of the levels. Using emoji for log
 
 We also define the folder where the log files will be saved. Just the `./logs` folder in the root of the project is suitable for this. Feel free to change some of this to your liking.
 
-2. Write helpers
+### Write helpers
 
 Log files need a naming strategy that balances convenience and maintainability. While a single fixed filename would work initially, it would eventually grow too large, slowing down access and making debugging harder. A simple solution is to rotate logs daily by including the current date in the filename (e.g., 05-26.log). This approach:
 
@@ -102,7 +102,7 @@ function logToFile(prefix: string, ...args: unknown[]) {
 }
 ```
 
-3. Write modification
+### Write modification
 
 Now we can write our modifier:
 
@@ -146,7 +146,7 @@ We store the original console methods to prevent infinite recursion - without th
 
 Then each modified method prepends a timestamp and corresponding emoji, logs to the console, and saves to a file. Debug logs are skipped in production (`NODE_ENV` === 'production'), keeping development-only logs clean.
 
-4. Combine into single function call
+### Combine into single function call
 
 Finally, we can combine all stuff into a single initialization function for our new logger to call it when the application starts:
 
