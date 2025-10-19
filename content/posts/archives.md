@@ -1,7 +1,10 @@
----
-title: Working with archives
-publish_date: 2025-05-26
----
++++
+title = "Working with Linux archives"
+date = 2025-05-26
+[extra]
+toc = true
+go_to_top = true
++++
 
 The use of archives in Linux is a common practice. Many programs, modules, entire datasets, media files, etc. are delivered in archived form. Therefore, the skill to work confidently with archives will be a definite plus for any developer. In this post I will try to describe possible scenarios of working with archives briefly and with examples.
 
@@ -9,16 +12,16 @@ The use of archives in Linux is a common practice. Many programs, modules, entir
 
 There are several common archive formats that work according to different algorithms and have different compression rates:
 
-| **Extension**     | **Created** | **Compression Strength** | **Common Usage**                            |
-| ----------------- | ----------- | ------------------------ | ------------------------------------------- |
-| `.tar`            | 1979        | None                     | Bundling files, backups without compression |
-| `.zip`            | 1989        | Medium                   | General-purpose archiving, file sharing     |
-| `.gz`             | 1992        | Medium                   | Compressing single log or text files        |
-| `.tar.gz` `.tgz`  | 1992        | Medium                   | Linux packaging, source code distribution   |
-| `.rar`            | 1993        | High                     | Multimedia archives, proprietary use        |
-| `.bz2` `.tar.bz2` | 1996        | High                     | Compressing single files, archival          |
-| `.7z`             | 1999        | Very High                | Maximum compression, large archives         |
-| `.xz` `.tar.xz`   | 2009        | Very High                | Replacement for `.bz2`, very compact        |
+| **Extension**     | **Created** | **Compression** | **Common Usage**                            |
+| ----------------- | ----------- | --------------- | ------------------------------------------- |
+| `.tar`            | 1979        | None            | Bundling files, backups without compression |
+| `.zip`            | 1989        | Medium          | General-purpose archiving, file sharing     |
+| `.gz`             | 1992        | Medium          | Compressing single log or text files        |
+| `.tar.gz` `.tgz`  | 1992        | Medium          | Linux packaging, source code distribution   |
+| `.rar`            | 1993        | High            | Multimedia archives, proprietary use        |
+| `.bz2` `.tar.bz2` | 1996        | High            | Compressing single files, archival          |
+| `.7z`             | 1999        | Very High       | Maximum compression, large archives         |
+| `.xz` `.tar.xz`   | 2009        | Very High       | Replacement for `.bz2`, very compact        |
 
 ## Tape Archive (.tar)
 
@@ -60,13 +63,13 @@ tar -xzf archive.tgz -C /path/to/extract
 
 🚩 Flags description:
 
-- `-c`: Create a new archive
-- `-f`: File name of the archive
-- `-x`: Extract files from an archive
-- `-z`: Use gzip compression
-- `-t`: List contents of the archive
-- `-v`: Shows the files being processed
-- `-C`: (uppercase C) Change the directory where the files will be extracted to
+-   `-c`: Create a new archive
+-   `-f`: File name of the archive
+-   `-x`: Extract files from an archive
+-   `-z`: Use gzip compression
+-   `-t`: List contents of the archive
+-   `-v`: Shows the files being processed
+-   `-C`: (uppercase C) Change the directory where the files will be extracted to
 
 ## Zip Archive (.zip)
 
@@ -148,12 +151,12 @@ bzip2 -d file.txt.bz2
 
 🚩 Flags description:
 
-- `a`: Add files to archive (used to create)
-- `x`: Extract with full directory structure
-- `e`: Extract without directory structure (all files to current dir)
-- `-o`: Set the output directory for extraction (no space after -o)
-- `-p`: Set a password for encryption/decryption (optional)
-- `-m0=lzma2`: Specify compression method (LZMA2 is default)
+-   `a`: Add files to archive (used to create)
+-   `x`: Extract with full directory structure
+-   `e`: Extract without directory structure (all files to current dir)
+-   `-o`: Set the output directory for extraction (no space after -o)
+-   `-p`: Set a password for encryption/decryption (optional)
+-   `-m0=lzma2`: Specify compression method (LZMA2 is default)
 
 ## XZ Archive (.xz)
 
@@ -173,8 +176,8 @@ xz -d file.txt.xz
 
 🚩 Flags description:
 
-- (no flag): Compress the specified file
-- `-d`: Decompress the file (same as unxz)
-- `-k`: Keep the original file instead of deleting it after compression/decompression
-- `-v`: Verbose output
-- `-T`N: Use N threads for compression (e.g., `-T4`)
+-   (no flag): Compress the specified file
+-   `-d`: Decompress the file (same as unxz)
+-   `-k`: Keep the original file instead of deleting it after compression/decompression
+-   `-v`: Verbose output
+-   `-T`N: Use N threads for compression (e.g., `-T4`)

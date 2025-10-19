@@ -1,0 +1,85 @@
+[[collection]]
+type = "card_simple"
+title = "Waylis"
+link = "https://github.com/waylis/core"
+content = "Node.js library designed to simplify interaction between users and backend"
+date = "2025"
+
+[[collection]]
+type = "card_simple"
+title = "Airstation"
+link = "https://github.com/cheatsnake/airstation"
+content = "Self-hostable online radio station"
+date = "2025"
+
+[[collection]]
+type = "card_simple"
+title = "gtl"
+link = "https://github.com/cheatsnake/airstation"
+content = "A tiny Go module for sending logs to Telegram"
+date = "2024"
+
+[[collection]]
+type = "card_simple"
+title = "Botyard"
+link = "https://github.com/cheatsnake/botyard"
+content = "Self-hosted chatbot platform focused on simplicity"
+date = "2023"
+
+
+[[collection]]
+type = "card_simple"
+title = "tglog"
+link = "https://github.com/cheatsnake/tglog"
+content = "A tiny Node.js module for sending logs to Telegram"
+date = "2023"
+
+
+[[collection]]
+type = "card_simple"
+title = "Shadify"
+link = "https://github.com/cheatsnake/shadify"
+content = "REST API service for building puzzles"
+date = "2022"
+
+[[collection]]
+type = "card_simple"
+title = "Binario"
+link = "https://github.com/cheatsnake/binario"
+content = "Beautiful puzzle game with simple rules"
+date = "2022"
+
+[[collection]]
+type = "card_simple"
+title = "EmojiHub"
+link = "https://github.com/cheatsnake/emojihub"
+content = "REST API service with emojis"
+date = "2022"
+
+[[collection]]
+type = "card_simple"
+title = "xColors"
+link = "https://github.com/cheatsnake/xColors-api"
+content = "REST API service for generating & converting colors"
+date = "2021"
+
+[[collection]]
+type = "card_simple"
+title = "Mind Math"
+link = "https://github.com/cheatsnake/MindMath"
+content = "A web application for practicing mental arithmetic"
+date = "2021"
+
+[[collection]]
+type = "card_simple"
+title = "NSConverter"
+link = "https://github.com/cheatsnake/NSConverter"
+content = "A web application for converting various number systems"
+date = "2021"
+
+[[collection]]
+type = "card_simple"
+title = "Interval Timer"
+link = "https://github.com/cheatsnake/IntervalTimer"
+content = "A simple web interval timer"
+date = "2021"

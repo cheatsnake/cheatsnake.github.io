@@ -1,22 +1,27 @@
----
-title: Node.js logging
-publish_date: 2025-06-01
----
++++
+title = "Simple Node.js logging"
+date = 2025-06-01
+[extra]
+toc = true
+go_to_top = true
++++
 
-Logging is essential for almost every application. A good logger should include levels, timestamps, and file output - features you’d expect to be built into Node.js by default. Yet, surprisingly, Node.js still lacks a robust built-in solution.
+Logging is essential for almost every application. A good logger should include levels, timestamps, and file output — features you’d expect to be built into Node.js by default. Yet, surprisingly, Node.js still lacks a robust built-in solution.
 
-As a result, many developers immediately turn to NPM modules, adding yet another dependency to their projects. This leads to an unnecessary import in nearly every file - a small annoyance that adds up over time.
+As a result, many developers immediately turn to NPM modules, adding yet another dependency to their projects. This leads to an unnecessary import in nearly every file — a small annoyance that adds up over time.
 
 What if you could enhance Node.js’s built-in console to handle structured logging without extra dependencies? In this post, I’ll show you how.
 
 ## Default logs
 
-The legendary `console.log` works simply as possible - it just outputs to the console what you have passed to it:
+The legendary `console.log` works simply as possible — it just outputs to the console what you have passed to it:
+
 ```ts
 // src/main.ts
 console.log("This is default console.log");
 console.log("test", 2025, true, { data: [] });
 ```
+
 ```sh
 $ npx tsx src/main.ts
 This is default console.log
@@ -32,6 +37,7 @@ console.warn("warn message");
 console.error("error message");
 console.debug("debug message");
 ```
+
 ```sh
 $ npx tsx src/main.ts
 info message
@@ -40,7 +46,7 @@ error message
 debug message
 ```
 
-By default, these methods behave almost identically to `console.log` - they print plain text without additional formatting. The only technical difference is that `log`, `info`, and `debug` write to stdout, while `warn` and `error` write to stderr. However, this distinction is rarely visible in most development environments, so we’ll focus on enhancing their usability.
+By default, these methods behave almost identically to `console.log` — they print plain text without additional formatting. The only technical difference is that `log`, `info`, and `debug` write to [stdout](<https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout)>), while `warn` and `error` write to [stderr](<https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr)>). However, this distinction is rarely visible in most development environments, so we’ll focus on enhancing their usability.
 
 ## Modification
 
@@ -56,7 +62,7 @@ $ touch src/utils/logger.ts
 import fs from "fs";
 import path from "path";
 
-const LOG_EMOJI = {info: "💬", warn: "⚠️", error: "🛑", debug: "🔨"};
+const LOG_EMOJI = { info: "💬", warn: "⚠️", error: "🛑", debug: "🔨" };
 const LOGS_DIR = path.join(path.dirname("."), "logs");
 ```
 
@@ -68,9 +74,9 @@ We also define the folder where the log files will be saved. Just the `./logs` f
 
 Log files need a naming strategy that balances convenience and maintainability. While a single fixed filename would work initially, it would eventually grow too large, slowing down access and making debugging harder. A simple solution is to rotate logs daily by including the current date in the filename (e.g., 05-26.log). This approach:
 
-- Prevents unbounded file growth
-- Organizes logs chronologically for easy retrieval
-- Requires no manual cleanup
+-   Prevents unbounded file growth
+-   Organizes logs chronologically for easy retrieval
+-   Requires no manual cleanup
 
 Here’s the helper function to implement this:
 
@@ -139,10 +145,10 @@ function modifyConsoleLogs() {
         originalDebug(prefix, ...args);
         logToFile(prefix, ...args);
     };
-};
+}
 ```
 
-We store the original console methods to prevent infinite recursion - without this, our overridden methods would call themselves indefinitely (e.g., `console.error` triggering itself). The constants preserve the native functions for safe reuse.
+We store the original console methods to prevent infinite recursion — without this, our overridden methods would call themselves indefinitely (e.g., `console.error` triggering itself). The constants preserve the native functions for safe reuse.
 
 Then each modified method prepends a timestamp and corresponding emoji, logs to the console, and saves to a file. Debug logs are skipped in production (`NODE_ENV` === 'production'), keeping development-only logs clean.
 
@@ -186,6 +192,7 @@ const main = async () => {
 
 main();
 ```
+
 ```sh
 $ npx tsx src/main.ts
 This is default console.log
@@ -204,6 +211,7 @@ logs
 
 1 directory, 1 file
 ```
+
 ```sh
 $ cat logs/05-26.log
 5/26/2025, 12:28:36 PM 💬 This is modified console.info
@@ -266,7 +274,7 @@ function modifyConsoleLogs() {
         originalDebug(prefix, ...args);
         logToFile(prefix, ...args);
     };
-};
+}
 
 const padZero = (value: number) => String(value).padStart(2, "0");
 
