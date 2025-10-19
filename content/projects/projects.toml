@@ -15,7 +15,7 @@ date = "2025"
 [[collection]]
 type = "card_simple"
 title = "gtl"
-link = "https://github.com/cheatsnake/airstation"
+link = "https://github.com/cheatsnake/gtl"
 content = "A tiny Go module for sending logs to Telegram"
 date = "2024"
 
