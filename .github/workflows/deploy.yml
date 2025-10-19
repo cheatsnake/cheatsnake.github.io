@@ -1,6 +1,12 @@
 on:
     push:
     workflow_dispatch:
+
+permissions:
+    contents: write
+    pages: write
+    id-token: write
+
 name: Build and deploy GH Pages
 jobs:
     build:
