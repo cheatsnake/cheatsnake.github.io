@@ -25,5 +25,5 @@ content = "SQL cheatsheet with examples"
 [[collection]]
 type = "card_simple"
 title = "Quick Git"
-link = "https://github.com/cheatsnake/regex-by-example"
+link = "https://github.com/cheatsnake/quick-git"
 content = "An overview of the main commands for working with the Git"
