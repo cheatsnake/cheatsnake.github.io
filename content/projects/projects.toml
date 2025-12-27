@@ -72,13 +72,6 @@ date = "2021"
 
 [[collection]]
 type = "card_simple"
-title = "NSConverter"
-link = "https://github.com/cheatsnake/NSConverter"
-content = "A web application for converting various number systems"
-date = "2021"
-
-[[collection]]
-type = "card_simple"
 title = "Interval Timer"
 link = "https://github.com/cheatsnake/IntervalTimer"
 content = "A simple web interval timer"
