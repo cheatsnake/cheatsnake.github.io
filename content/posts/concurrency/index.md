@@ -1,5 +1,5 @@
 +++
-title = "Simple about concurrency"
+title = "Concurrency in Go"
 date = 2025-12-27
 [extra]
 toc = true
@@ -68,11 +68,11 @@ Took: 240 ms
 
 We still utilize a single processor core without employing any mechanisms to accelerate the program's performance. We simply cut the cake, leaving each piece in its place.
 
-Now let's run each part of the task in a separate goroutine, but let our program use only 1 CPU core:
+Now let's run each part of the task in a separate goroutine (lightweight thread), but let our program process only one at a time:
 
 ```go
 func main() {
-  runtime.GOMAXPROCS(1) // Max number of CPU cores to use
+  runtime.GOMAXPROCS(1) // Max number of goroutines to run at once
   start := time.Now()
   var wg sync.WaitGroup
 
@@ -93,6 +93,8 @@ $ go run main.go
 Took: 240 ms
 ```
 
+> Also note that `GOMAXPROCS` is not a hard CPU limit - it only controls how many goroutines can execute in parallel within the Go runtime. The OS can still schedule threads on any available cores unless you explicitly restrict CPU affinity at the system or container level.
+
 ![Multiple tasks each on a single CPU core](./single-cpu-concurrent-tasks.png)
 
 The speed of our program has not changed, since the processor resource is still limited to one core. But now each task of the program runs in a separate goroutine — a lightweight execution unit multiplexed onto OS threads. Each such thread can compete with others for available resources. 
@@ -102,7 +104,7 @@ Concurrency involves structuring programs in such a way that multiple tasks can 
 Let's try to gradually increase the number of cores available to the program:
 
 ```go
-runtime.GOMAXPROCS(2) // Max number of CPU cores to use
+runtime.GOMAXPROCS(2) // Max number of goroutines to run at once
 ```
 ```sh
 $ go run main.go
@@ -119,7 +121,9 @@ $ go run main.go
 Took: 80 ms
 ```
 
-Notice how efficiently the processor cores are utilized.
+Notice how efficiently the resources are utilized.
+
+> With `GOMAXPROCS=3`, we have one more CPU core compared to previous step. To efficiently utilize all three cores across four goroutines, the Go scheduler preempts long-running tasks and splits the execution of each goroutine into short time slices (quants). As a result, each goroutine still receives a total of 60 ms of pure CPU time - but not continuously - interleaved with others. Thanks to this, all three cores run without idle time.
 
 ![Multiple tasks on 3 cores](./3-cpu-concurrent-tasks.png)
 
