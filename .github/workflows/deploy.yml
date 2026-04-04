@@ -1,21 +1,21 @@
 on:
-    push:
-    workflow_dispatch:
+  push:
+  workflow_dispatch:
 
 permissions:
-    contents: write
-    pages: write
-    id-token: write
+  contents: write
+  pages: write
+  id-token: write
 
 name: Build and deploy GH Pages
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout
-              uses: actions/checkout@v4
-            - name: build_and_deploy
-              uses: shalzz/zola-deploy-action@master
-              env:
-                  PAGES_BRANCH: gh-pages
-                  TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build_and_deploy
+        uses: shalzz/zola-deploy-action@v0.21
+        env:
+          PAGES_BRANCH: gh-pages
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
