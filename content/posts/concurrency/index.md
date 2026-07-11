@@ -1,5 +1,5 @@
 +++
-title = "Concurrency in Go"
+title = "Concurrency Illustrated"
 date = 2025-12-27
 [extra]
 toc = true
@@ -23,7 +23,7 @@ func main() {
   start := time.Now()
   heavyTask(1_000_000_000)
   took := time.Since(start).Milliseconds()
-  
+
   fmt.Printf("Took: %d ms\n", took)
 }
 
@@ -55,10 +55,11 @@ func main() {
   heavyTask(250_000_000)
   heavyTask(250_000_000)
   took := time.Since(start).Milliseconds()
-  
+
   fmt.Printf("Took: %d ms\n", took)
 }
 ```
+
 ```sh
 $ go run main.go
 Took: 240 ms
@@ -88,6 +89,7 @@ func main() {
   fmt.Printf("Took: %d ms\n", took)
 }
 ```
+
 ```sh
 $ go run main.go
 Took: 240 ms
@@ -97,7 +99,7 @@ Took: 240 ms
 
 ![Multiple tasks each on a single CPU core](./single-cpu-concurrent-tasks.png)
 
-The speed of our program has not changed, since the processor resource is still limited to one core. But now each task of the program runs in a separate goroutine — a lightweight execution unit multiplexed onto OS threads. Each such thread can compete with others for available resources. 
+The speed of our program has not changed, since the processor resource is still limited to one core. But now each task of the program runs in a separate goroutine — a lightweight execution unit multiplexed onto OS threads. Each such thread can compete with others for available resources.
 
 Concurrency involves structuring programs in such a way that multiple tasks can be performed independently of each other, competing for available resources.
 
@@ -106,6 +108,7 @@ Let's try to gradually increase the number of cores available to the program:
 ```go
 runtime.GOMAXPROCS(2) // Max number of goroutines to run at once
 ```
+
 ```sh
 $ go run main.go
 Took: 120 ms
@@ -116,6 +119,7 @@ Took: 120 ms
 ```go
 runtime.GOMAXPROCS(3)
 ```
+
 ```sh
 $ go run main.go
 Took: 80 ms
@@ -130,6 +134,7 @@ Notice how efficiently the resources are utilized.
 ```go
 runtime.GOMAXPROCS(4)
 ```
+
 ```sh
 $ go run main.go
 Took: 60 ms
