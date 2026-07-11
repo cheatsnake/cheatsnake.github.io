@@ -1,5 +1,5 @@
 +++
-title = "How to use server as a remote git repository"
+title = "Hosting Git repositories on your server"
 date = 2026-07-11
 [extra]
 toc = false
