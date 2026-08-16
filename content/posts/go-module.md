@@ -38,7 +38,7 @@ git tag v0.1.0
 git push origin master v0.1.0
 ```
 
-Documentation: https://pkg.go.dev/github.com/yourname/module@v0.1.0
+Documentation: [https://pkg.go.dev/github.com/yourname/module@v0.1.0](https://pkg.go.dev/github.com/yourname/module@v0.1.0)
 
 Installation: `go get github.com/yourname/module@v0.1.0`
 
@@ -57,7 +57,7 @@ git tag v1.0.0
 git push origin master v1.0.0
 ```
 
-Documentation: https://pkg.go.dev/github.com/yourname/module
+Documentation: [https://pkg.go.dev/github.com/yourname/module](https://pkg.go.dev/github.com/yourname/module)
 
 Installation: `go get github.com/yourname/module@v1.0.0`
 
@@ -105,7 +105,7 @@ git tag v2.0.0
 git push origin master v2.0.0
 ```
 
-Documentation: https://pkg.go.dev/github.com/yourname/module/v2
+Documentation: [https://pkg.go.dev/github.com/yourname/module/v2](https://pkg.go.dev/github.com/yourname/module/v2)
 
 Installation: `go get github.com/yourname/module/v2@v2.0.0`
 
@@ -114,10 +114,10 @@ Import: `github.com/yourname/module/v2`
 ## Example
 
 You can see an example of a simple module that has gone through this life cycle here:
-https://github.com/cheatsnake/module
+[https://github.com/cheatsnake/module](https://github.com/cheatsnake/module)
 
 Corresponding links to go pkg:
 
-- https://pkg.go.dev/github.com/cheatsnake/module@v0.2.0
-- https://pkg.go.dev/github.com/cheatsnake/module
-- https://pkg.go.dev/github.com/cheatsnake/module/v2
+- [https://pkg.go.dev/github.com/cheatsnake/module@v0.2.0](https://pkg.go.dev/github.com/cheatsnake/module@v0.2.0)
+- [https://pkg.go.dev/github.com/cheatsnake/module](https://pkg.go.dev/github.com/cheatsnake/module)
+- [https://pkg.go.dev/github.com/cheatsnake/module/v2](https://pkg.go.dev/github.com/cheatsnake/module/v2)
