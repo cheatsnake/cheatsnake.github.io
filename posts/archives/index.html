@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  
+  
+    
+  
+  <meta name="description" content="Software developer">
+
+  <title>Working with Linux archives</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://yurace.pro/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://yurace.pro/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://yurace.pro/img/apple-touch-icon.png">
+  
+  <style>
+
+  /* light mode colors */
+  body {
+    --primary-color: #5871a2;
+    --primary-pale-color: #5871a233;
+    --primary-decoration-color: #5871a210;
+    --bg-color: #ffffff;
+    --text-color: #2f3030;
+    --text-pale-color: #767676;
+    --text-decoration-color: #a9a9a9;
+    --highlight-mark-color: #5f75b020;
+
+    --callout-note-color: #5871a2;
+    --callout-tip-color: #268556;
+    --callout-important-color: #885fc9;
+    --callout-warning-color: #ab6632;
+    --callout-caution-color: #c64e4e;
+  }
+
+  /* dark mode colors */
+  body.dark {
+    --primary-color: #6f8fd1;
+    --primary-pale-color: #6f8fd166;
+    --primary-decoration-color: #6f8fd112;
+    --bg-color: #1c1c1c;
+    --text-color: #c1c1c1;
+    --text-pale-color: #848484;
+    --text-decoration-color: #5f5f5f;
+    --highlight-mark-color: #8296cb3b;
+
+    --callout-note-color: #6f8fd1;
+    --callout-tip-color: #47976f;
+    --callout-important-color: #9776cd;
+    --callout-warning-color: #ad7a52;
+    --callout-caution-color: #d06161;
+  }
+
+  /* typography */
+  body {
+    --main-font: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --homepage-max-width: 768px;
+    --main-max-width: 768px;
+    --avatar-size: 60px;
+    --font-size: 16px;
+    --line-height: 1.75;
+    --img-border-radius: 0px;
+    --detail-border-radius: 0px;
+    --dark-mode-img-brightness: 1;
+    --dark-mode-chart-brightness: 0.75;
+    --inline-code-border-radius: 2px;
+    --inline-code-bg-color: var(--primary-decoration-color);
+    --block-code-border-radius: 0px;
+    --block-code-border-color: var(--primary-color);
+    --detail-border-color: var(--primary-color);
+  }
+
+</style>
+
+  <link rel="stylesheet" href="https://yurace.pro/main.css">
+  
+
+<link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
+
+
+
+  
+</head>
+
+<body class="post">
+  
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches
+    if ((theme && theme == 'dark') || (!theme && match)) {
+      document.body.classList.add('dark');
+      const hl = document.querySelector('link#hl');
+      if (hl) hl.href = 'https://yurace.pro/hl-dark.css';
+    }
+  </script>
+  
+  
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside>
+    
+    
+    <nav>
+      <ul>
+        
+        <li>
+          <a class="h2" href="#common-archive-formats">Common Archive Formats</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#tape-archive-tar">Tape Archive (.tar)</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#zip-archive-zip">Zip Archive (.zip)</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#gzip-archive-gz">Gzip Archive (.gz)</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#rar-archive-rar">RAR Archive (.rar)</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#bzip2-archive-bz2">Bzip2 Archive (.bz2)</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#7-zip-archive-7z">7-Zip Archive (.7z)</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#xz-archive-xz">XZ Archive (.xz)</a>
+          
+        </li>
+        
+      </ul>
+    </nav>
+    
+    
+    <button id="back-to-top" aria-label="back to top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+
+    </button>
+    
+  </aside>
+  <main>
+    
+<header>
+  <nav>
+    <a id="back-link" href="https:&#x2F;&#x2F;yurace.pro&#x2F;posts">← Back</a>
+  </nav>
+</header>
+
+
+    <div>
+      
+      
+      
+      
+      <div id="copy-cfg" style="display: none;" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+"></div>
+      
+      <article class="prose">
+        <h1>Working with Linux archives</h1>
+        <div id="post-info">
+          <div id="date">
+            <span id="publish">May 26, 2025</span>
+            </div>
+
+          
+        </div>
+
+        
+        
+
+        
+
+        <p>The use of archives in Linux is a common practice. Many programs, modules, entire datasets, media files, etc. are delivered in archived form. Therefore, the skill to work confidently with archives will be a definite plus for any developer. In this post I will try to describe possible scenarios of working with archives briefly and with examples.</p>
+<h2 id="common-archive-formats">Common Archive Formats<a class="zola-anchor" href="#common-archive-formats" aria-label="Anchor link for: common-archive-formats" style="visibility: hidden;"></a>
+</h2>
+<p>There are several common archive formats that work according to different algorithms and have different compression rates:</p>
+<table><thead><tr><th><strong>Extension</strong></th><th><strong>Created</strong></th><th><strong>Compression</strong></th><th><strong>Common Usage</strong></th></tr></thead><tbody>
+<tr><td><code>.tar</code></td><td>1979</td><td>None</td><td>Bundling files, backups without compression</td></tr>
+<tr><td><code>.zip</code></td><td>1989</td><td>Medium</td><td>General-purpose archiving, file sharing</td></tr>
+<tr><td><code>.gz</code></td><td>1992</td><td>Medium</td><td>Compressing single log or text files</td></tr>
+<tr><td><code>.tar.gz</code> <code>.tgz</code></td><td>1992</td><td>Medium</td><td>Linux packaging, source code distribution</td></tr>
+<tr><td><code>.rar</code></td><td>1993</td><td>High</td><td>Multimedia archives, proprietary use</td></tr>
+<tr><td><code>.bz2</code> <code>.tar.bz2</code></td><td>1996</td><td>High</td><td>Compressing single files, archival</td></tr>
+<tr><td><code>.7z</code></td><td>1999</td><td>Very High</td><td>Maximum compression, large archives</td></tr>
+<tr><td><code>.xz</code> <code>.tar.xz</code></td><td>2009</td><td>Very High</td><td>Replacement for <code>.bz2</code>, very compact</td></tr>
+</tbody></table>
+<h2 id="tape-archive-tar">Tape Archive (.tar)<a class="zola-anchor" href="#tape-archive-tar" aria-label="Anchor link for: tape-archive-tar" style="visibility: hidden;"></a>
+</h2>
+<p>📦 Create a new archive (without compression) with some files and folder inside:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tar</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>cf</span> archive.tar file1 file2 dir/</span>
+</span></code></pre>
+<p>📦 Create a compressed archive with files and folders inside:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tar</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>czf</span> archive.tar.gz file1 file2 dir/</span>
+</span></code></pre>
+<p>📦 Shorthand with .tgz (same command, just a different extension):</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tar</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>czf</span> archive.tgz file1 file2 dir/</span>
+</span></code></pre>
+<p>📂 Extract files from archive to specified directory:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tar</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>xf</span> archive.tar<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>C</span> /path/to/extract</span>
+</span></code></pre>
+<p>📂 Extract files from the compressed archive to a specified directory:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tar</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>xzf</span> archive.tar.gz<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>C</span> /path/to/extract</span>
+</span></code></pre>
+<p>📂 Extract .tgz:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tar</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>xzf</span> archive.tgz<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>C</span> /path/to/extract</span>
+</span></code></pre>
+<p>🚩 Flags description:</p>
+<ul>
+<li><code>-c</code>: Create a new archive</li>
+<li><code>-f</code>: File name of the archive</li>
+<li><code>-x</code>: Extract files from an archive</li>
+<li><code>-z</code>: Use gzip compression</li>
+<li><code>-t</code>: List contents of the archive</li>
+<li><code>-v</code>: Shows the files being processed</li>
+<li><code>-C</code>: (uppercase C) Change the directory where the files will be extracted to</li>
+</ul>
+<h2 id="zip-archive-zip">Zip Archive (.zip)<a class="zola-anchor" href="#zip-archive-zip" aria-label="Anchor link for: zip-archive-zip" style="visibility: hidden;"></a>
+</h2>
+<p>📦 Create a new archive with some files and folder inside:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">zip</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>r</span> archive.zip file1 file2 dir/</span>
+</span></code></pre>
+<p>📂 Extract files from archive to specified directory:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">unzip</span></span><span class="z-meta z-function-call z-arguments z-shell"> archive.zip<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>d</span> /path/to/extract</span>
+</span></code></pre>
+<h2 id="gzip-archive-gz">Gzip Archive (.gz)<a class="zola-anchor" href="#gzip-archive-gz" aria-label="Anchor link for: gzip-archive-gz" style="visibility: hidden;"></a>
+</h2>
+<blockquote>
+<p><code>.gz</code> compresses only single files — not folders. To compress multiple files, use it together with <code>tar</code>, e.g., <code>.tar.gz</code>.</p>
+</blockquote>
+<p>📦 Compress a single file:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gzip</span></span><span class="z-meta z-function-call z-arguments z-shell"> file.txt</span>
+</span></code></pre>
+<p>📂 Decompress a <code>.gz</code> file to a current directory:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gzip</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>d</span> file.txt.gz</span>
+</span></code></pre>
+<h2 id="rar-archive-rar">RAR Archive (.rar)<a class="zola-anchor" href="#rar-archive-rar" aria-label="Anchor link for: rar-archive-rar" style="visibility: hidden;"></a>
+</h2>
+<blockquote>
+<p>RAR is a proprietary format. You’ll need to install <code>rar</code> (for creating) and <code>unrar</code> (for extracting) on most Linux systems.</p>
+</blockquote>
+<p>📦 Create a new .rar archive with files and a folder inside:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">rar</span></span><span class="z-meta z-function-call z-arguments z-shell"> a archive.rar file1 file2 dir/</span>
+</span></code></pre>
+<p>📂 Extract files from the archive to a specified directory:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">unrar</span></span><span class="z-meta z-function-call z-arguments z-shell"> x archive.rar /path/to/extract/</span>
+</span></code></pre>
+<h2 id="bzip2-archive-bz2">Bzip2 Archive (.bz2)<a class="zola-anchor" href="#bzip2-archive-bz2" aria-label="Anchor link for: bzip2-archive-bz2" style="visibility: hidden;"></a>
+</h2>
+<blockquote>
+<p><code>.bz2</code> compresses a single file. To compress multiple files or directories, combine it with <code>tar</code> (i.e., use <code>.tar.bz2</code>).</p>
+</blockquote>
+<p>📦 Compress a single file:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">bzip2</span></span><span class="z-meta z-function-call z-arguments z-shell"> file.txt</span>
+</span></code></pre>
+<p>📂 Decompress a .bz2 file to a current directory:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">bzip2</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>d</span> file.txt.bz2</span>
+</span></code></pre>
+<h2 id="7-zip-archive-7z">7-Zip Archive (.7z)<a class="zola-anchor" href="#7-zip-archive-7z" aria-label="Anchor link for: 7-zip-archive-7z" style="visibility: hidden;"></a>
+</h2>
+<blockquote>
+<p>Requires the <code>p7zip</code> package (<code>p7zip-full</code> on most distros).</p>
+</blockquote>
+<p>📦 Create a .7z archive with files and folders inside:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">7z</span></span><span class="z-meta z-function-call z-arguments z-shell"> a archive.7z file1 file2 dir/</span>
+</span></code></pre>
+<p>📂 Extract files from the archive to a specified directory:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">7z</span></span><span class="z-meta z-function-call z-arguments z-shell"> x archive.7z<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>o</span>/path/to/extract/</span>
+</span></code></pre>
+<p>🚩 Flags description:</p>
+<ul>
+<li><code>a</code>: Add files to archive (used to create)</li>
+<li><code>x</code>: Extract with full directory structure</li>
+<li><code>e</code>: Extract without directory structure (all files to current dir)</li>
+<li><code>-o</code>: Set the output directory for extraction (no space after -o)</li>
+<li><code>-p</code>: Set a password for encryption/decryption (optional)</li>
+<li><code>-m0=lzma2</code>: Specify compression method (LZMA2 is default)</li>
+</ul>
+<h2 id="xz-archive-xz">XZ Archive (.xz)<a class="zola-anchor" href="#xz-archive-xz" aria-label="Anchor link for: xz-archive-xz" style="visibility: hidden;"></a>
+</h2>
+<blockquote>
+<p><code>.xz</code> compresses a single file. To compress folders or multiple files, combine it with <code>tar</code> (see <code>.tar.xz</code>).</p>
+</blockquote>
+<p>📦 Compress a single file:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">xz</span></span><span class="z-meta z-function-call z-arguments z-shell"> file.txt</span>
+</span></code></pre>
+<p>📂 Decompress a .xz file to a specified directory:</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">xz</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>d</span> file.txt.xz</span>
+</span></code></pre>
+<p>🚩 Flags description:</p>
+<ul>
+<li>(no flag): Compress the specified file</li>
+<li><code>-d</code>: Decompress the file (same as unxz)</li>
+<li><code>-k</code>: Keep the original file instead of deleting it after compression/decompression</li>
+<li><code>-v</code>: Verbose output</li>
+<li><code>-T</code>N: Use N threads for compression (e.g., <code>-T4</code>)</li>
+</ul>
+
+      </article>
+
+      
+      
+
+      
+      
+    </div>
+
+    
+
+
+<footer>
+  <div class="left">
+    <div class="copyright">
+      © 2025 Yurace
+      
+      <span>|</span>
+      Built with <a href="https://www.getzola.org" rel="noreferrer" target="_blank">zola</a> and <a href="https://github.com/isunjn/serene" rel="noreferrer" target="_blank">serene</a>
+      
+    </div>
+  </div>
+
+  <div class="right">
+    
+    
+      
+    
+    
+    <a id="rss-btn" href="https://yurace.pro/posts/feed.xml">RSS</a>
+    
+    
+
+    
+    
+    
+    <button id="theme-toggle" aria-label="theme switch">
+      <span class="moon-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z" fill="currentColor"></path></svg>
+</span>
+      <span class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z" fill="currentColor"></path></svg>
+</span>
+    </button>
+    
+  </div>
+</footer>
+
+
+
+
+<dialog id="rss-mask">
+  <div>
+    <a href="https:&#x2F;&#x2F;yurace.pro&#x2F;posts&#x2F;feed.xml">https:&#x2F;&#x2F;yurace.pro&#x2F;posts&#x2F;feed.xml</a>
+    
+    
+    <button autofocus aria-label="copy" data-link="https:&#x2F;&#x2F;yurace.pro&#x2F;posts&#x2F;feed.xml" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z" fill="currentColor"></path></svg>
+
+    </button>
+  </div>
+</dialog>
+
+
+
+  </main>
+</div>
+
+  
+<script src="/js/lightense.min.js"></script>
+
+
+  <script src="https://yurace.pro/js/main.js"></script>
+</body>
+
+</html>
