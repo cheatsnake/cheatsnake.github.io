@@ -1,0 +1,29 @@
+[[collection]]
+type = "card_simple"
+title = "Backend cheats"
+link = "https://github.com/cheatsnake/backend-cheats"
+content = "A visual cheatsheet on the main topics in Backend-development"
+
+[[collection]]
+type = "card_simple"
+title = "Regex by example"
+link = "https://github.com/cheatsnake/regex-by-example"
+content = "Regex cheatsheet with examples"
+
+[[collection]]
+type = "card_simple"
+title = "Bash scripts by example"
+link = "https://github.com/cheatsnake/bash-scripts-by-example"
+content = "Bash scripts cheatsheet with examples"
+
+[[collection]]
+type = "card_simple"
+title = "SQL by example"
+link = "https://github.com/cheatsnake/sql-by-example"
+content = "SQL cheatsheet with examples"
+
+[[collection]]
+type = "card_simple"
+title = "Quick Git"
+link = "https://github.com/cheatsnake/quick-git"
+content = "An overview of the main commands for working with the Git"

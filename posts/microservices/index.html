@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  
+  
+    
+  
+  <meta name="description" content="Software developer">
+
+  <title>Simple about microservices</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://yurace.pro/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://yurace.pro/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://yurace.pro/img/apple-touch-icon.png">
+  
+  <style>
+
+  /* light mode colors */
+  body {
+    --primary-color: #5871a2;
+    --primary-pale-color: #5871a233;
+    --primary-decoration-color: #5871a210;
+    --bg-color: #ffffff;
+    --text-color: #2f3030;
+    --text-pale-color: #767676;
+    --text-decoration-color: #a9a9a9;
+    --highlight-mark-color: #5f75b020;
+
+    --callout-note-color: #5871a2;
+    --callout-tip-color: #268556;
+    --callout-important-color: #885fc9;
+    --callout-warning-color: #ab6632;
+    --callout-caution-color: #c64e4e;
+  }
+
+  /* dark mode colors */
+  body.dark {
+    --primary-color: #6f8fd1;
+    --primary-pale-color: #6f8fd166;
+    --primary-decoration-color: #6f8fd112;
+    --bg-color: #1c1c1c;
+    --text-color: #c1c1c1;
+    --text-pale-color: #848484;
+    --text-decoration-color: #5f5f5f;
+    --highlight-mark-color: #8296cb3b;
+
+    --callout-note-color: #6f8fd1;
+    --callout-tip-color: #47976f;
+    --callout-important-color: #9776cd;
+    --callout-warning-color: #ad7a52;
+    --callout-caution-color: #d06161;
+  }
+
+  /* typography */
+  body {
+    --main-font: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --homepage-max-width: 768px;
+    --main-max-width: 768px;
+    --avatar-size: 60px;
+    --font-size: 16px;
+    --line-height: 1.75;
+    --img-border-radius: 0px;
+    --detail-border-radius: 0px;
+    --dark-mode-img-brightness: 1;
+    --dark-mode-chart-brightness: 0.75;
+    --inline-code-border-radius: 2px;
+    --inline-code-bg-color: var(--primary-decoration-color);
+    --block-code-border-radius: 0px;
+    --block-code-border-color: var(--primary-color);
+    --detail-border-color: var(--primary-color);
+  }
+
+</style>
+
+  <link rel="stylesheet" href="https://yurace.pro/main.css">
+  
+
+<link id="hl" rel="stylesheet" type="text/css" href="/hl-light.css" />
+
+
+
+  
+</head>
+
+<body class="post">
+  
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches
+    if ((theme && theme == 'dark') || (!theme && match)) {
+      document.body.classList.add('dark');
+      const hl = document.querySelector('link#hl');
+      if (hl) hl.href = 'https://yurace.pro/hl-dark.css';
+    }
+  </script>
+  
+  
+<div id="wrapper">
+  <div id="blank"></div>
+  <aside>
+    
+    
+    <nav>
+      <ul>
+        
+        <li>
+          <a class="h2" href="#the-problem">The problem</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#what-is-microservice">What is microservice</a>
+          
+          <ul>
+            
+            <li>
+              <a class="h3" href="#single-responsibility">Single Responsibility</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#clear-stable-api">Clear, Stable API</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#horizontally-scalable-stateless">Horizontally Scalable &amp; Stateless</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#independent-data-storage">Independent Data Storage</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#controlled-external-communication">Controlled External Communication</a>
+            </li>
+            
+            <li>
+              <a class="h3" href="#centralized-logging-and-metrics">Centralized Logging and Metrics</a>
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#microservices-architecture">Microservices architecture</a>
+          
+        </li>
+        
+        <li>
+          <a class="h2" href="#comparasion">Comparasion</a>
+          
+        </li>
+        
+      </ul>
+    </nav>
+    
+    
+    <button id="back-to-top" aria-label="back to top">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+
+    </button>
+    
+  </aside>
+  <main>
+    
+<header>
+  <nav>
+    <a id="back-link" href="https:&#x2F;&#x2F;yurace.pro&#x2F;posts">← Back</a>
+  </nav>
+</header>
+
+
+    <div>
+      
+      
+      
+      
+      <div id="copy-cfg" style="display: none;" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+"></div>
+      
+      <article class="prose">
+        <h1>Simple about microservices</h1>
+        <div id="post-info">
+          <div id="date">
+            <span id="publish">Oct 26, 2025</span>
+            </div>
+
+          
+        </div>
+
+        
+        
+
+        
+
+        <p>Recently, I have become quite interested in microservices and architectural approaches for building scalable systems. In this regard, I decided to write a series of articles in which I will thoroughly analyze all the intricacies of such systems as simply and clearly as possible.</p>
+<h2 id="the-problem">The problem<a class="zola-anchor" href="#the-problem" aria-label="Anchor link for: the-problem" style="visibility: hidden;"></a>
+</h2>
+<p>Back in the early days of web development, <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Monolithic_application">monolithic architecture</a> wasn’t just popular — it was the default. Developers naturally built all-in-one applications that handled everything from the user interface to database operations. Splitting such a system into multiple services didn’t just seem unnecessary — it sounded like needless complexity.</p>
+<p>Why complicate something that already worked just fine?
+With small teams and relatively light traffic (at least by today’s standards), monoliths were simple, reliable, and easy to reason about.</p>
+<p><img src="https://yurace.pro/posts/microservices/./monolith.png" alt="Monolith" /></p>
+<p>But as projects grew, cracks began to show. The once-straightforward monolith turned into a massive, tangled system where even a small change in one module could unexpectedly break something completely unrelated. Scaling a single heavy component meant scaling the entire application. Development slowed down, risks grew, and teams lost the ability to work independently on different parts of the product.</p>
+<p>For a long time, there wasn’t really an alternative — the tech just wasn’t there yet. We didn’t have global-scale platforms like Google or Netflix, and most companies didn’t need hundreds of engineers working in parallel.</p>
+<p>Then the digital era truly kicked in. Web services exploded in size, teams grew fast, and businesses started demanding faster release cycles. Suddenly, the “all-in-one” approach just couldn’t keep up.</p>
+<p>That’s when the industry hit a turning point. The traditional monolithic model had reached its limits — and from that pain point, the concept of <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Microservices">microservices</a> was born.</p>
+<h2 id="what-is-microservice">What is microservice<a class="zola-anchor" href="#what-is-microservice" aria-label="Anchor link for: what-is-microservice" style="visibility: hidden;"></a>
+</h2>
+<p>A microservice by itself isn’t exactly a revolutionary idea. At its core, it’s still just an indivisible codebase — developed, built, and deployed as a single unit.</p>
+<p>The real innovation comes when you start connecting these isolated services into one loosely coupled, resilient system. For that system to work effectively, each microservice must strictly follow a set of key principles.</p>
+<h3 id="single-responsibility">Single Responsibility<a class="zola-anchor" href="#single-responsibility" aria-label="Anchor link for: single-responsibility" style="visibility: hidden;"></a>
+</h3>
+<p>Every microservice should have one clear area of responsibility — it solves one specific business problem and doesn’t accumulate unrelated features over time.</p>
+<p><img src="https://yurace.pro/posts/microservices/./single-responsibility.png" alt="Single responsibility" /></p>
+<p>If a service handles image compression, it should stay focused on that task — improve compression algorithms, add support for new formats, or fine-tune performance and quality options.</p>
+<p>Adding unrelated functionality — like object detection, image generation, or AI effects — breaks the single responsibility principle and turns the service into yet another mini-monolith. Each new business function deserves its own microservice, with its own scope and independent lifecycle.</p>
+<h3 id="clear-stable-api">Clear, Stable API<a class="zola-anchor" href="#clear-stable-api" aria-label="Anchor link for: clear-stable-api" style="visibility: hidden;"></a>
+</h3>
+<p>To be safely consumed, a microservice must expose a clear, stable, and <a rel="nofollow noreferrer" href="https://semver.org/">versioned</a> <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/API">API</a>. Common approaches include <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/HTTP">HTTP</a> (<a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/REST">REST</a>), <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a> (<a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/GRPC">gRPC</a>), and <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/GraphQL">GraphQL</a>.</p>
+<p><img src="https://yurace.pro/posts/microservices/./api.png" alt="API" /></p>
+<p>Changes in functionality should never break existing contracts. You can add new features, but if you need to change or remove something — release a new API version instead. Old versions must remain supported until all clients have migrated, ensuring backward compatibility and overall system stability.</p>
+<h3 id="horizontally-scalable-stateless">Horizontally Scalable &amp; Stateless<a class="zola-anchor" href="#horizontally-scalable-stateless" aria-label="Anchor link for: horizontally-scalable-stateless" style="visibility: hidden;"></a>
+</h3>
+<p>A true microservice should be <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Scalability#Horizontal_(scale_out)_and_vertical_scaling_(scale_up)">horizontally scalable</a> and <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/State_(computer_science)">stateless</a>.</p>
+<p><img src="https://yurace.pro/posts/microservices/./horizontal-scaling.png" alt="horizontal scaling" /></p>
+<p>That means every instance is fully independent — you can spin up as many copies as needed (independent <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Software_deployment">deployment</a>).</p>
+<p>Since the service doesn’t store any local state (e.g., in process memory), new instances can be freely added or removed to balance the load and improve resilience.</p>
+<p>All persistent data and session state should live in external systems — such as <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Database">databases</a>, <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Cache_(computing)">caches</a>, or <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Message_broker">message brokers</a>.</p>
+<h3 id="independent-data-storage">Independent Data Storage<a class="zola-anchor" href="#independent-data-storage" aria-label="Anchor link for: independent-data-storage" style="visibility: hidden;"></a>
+</h3>
+<p>Each microservice owns its data store. It manages its database schema and is responsible for its data’s structure and integrity.</p>
+<p><img src="https://yurace.pro/posts/microservices/./database-per-service.png" alt="Database per service" /></p>
+<p>This doesn’t mean every instance gets its own copy of the data. Logical ownership ≠ physical duplication. All replicas of the service share the same underlying dataset to scale correctly.</p>
+<p>Database scaling (<a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Replication_(computing)">replication</a>, <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Shard_(database_architecture)">sharding</a>, etc.) is an infrastructure concern — independent from the service instances themselves. The service just knows how to connect to its database and treats it as an external resource.</p>
+<h3 id="controlled-external-communication">Controlled External Communication<a class="zola-anchor" href="#controlled-external-communication" aria-label="Anchor link for: controlled-external-communication" style="visibility: hidden;"></a>
+</h3>
+<p>A microservice is autonomous — but not isolated. It often needs to talk to other services, and that communication must happen through well-defined interfaces.</p>
+<p>In some cases, a simple request-response model (REST, gRPC) is enough. In more complex systems, you might need asynchronous messaging through tools like <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/RabbitMQ">RabbitMQ</a>, <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Apache_Kafka">Apache Kafka</a>, or <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/NATS_Messaging">NATS</a>.</p>
+<p><img src="https://yurace.pro/posts/microservices/./message-broker.png" alt="Message broker" /></p>
+<p>The latter approach requires thoughtful design to maintain consistency, reliability, and <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Fault_tolerance">fault tolerance</a> (see <a rel="nofollow noreferrer" href="https://microservices.io/patterns">microservice communication patterns</a>).</p>
+<p>That said, a microservice shouldn’t depend on external communication for its core functionality. It should provide standalone value on its own.</p>
+<p>If a service exists only to call another one — it’s not a microservice; it’s just an unnecessary middle layer. Or worse — part of a <a rel="nofollow noreferrer" href="https://gist.github.com/StevenACoffman/4685ae6dbc8cacf197f26922055e6ecc">distributed monolith</a>.</p>
+<h3 id="centralized-logging-and-metrics">Centralized Logging and Metrics<a class="zola-anchor" href="#centralized-logging-and-metrics" aria-label="Anchor link for: centralized-logging-and-metrics" style="visibility: hidden;"></a>
+</h3>
+<p>Since each microservice can have multiple instances, manual monitoring isn’t practical.</p>
+<p><img src="https://yurace.pro/posts/microservices/./logs-and-metrics.png" alt="Logs and metrics" /></p>
+<p>You need centralized <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Logging_(computing)">logging</a> and <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Software_metric">metrics</a> platforms — such as <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Elasticsearch#Features">ELK stack</a>, <a rel="nofollow noreferrer" href="https://grafana.com/go/webinar/getting-started-with-grafana-lgtm-stack/">LGTM stack</a>, <a rel="nofollow noreferrer" href="https://github.com/graylog2">Graylog</a>, or <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Prometheus_(software)">Prometheus</a>.</p>
+<p>These tools provide a unified view of all instances, helping teams quickly detect errors, identify bottlenecks, and understand the real-time health of the entire system.</p>
+<h2 id="microservices-architecture">Microservices architecture<a class="zola-anchor" href="#microservices-architecture" aria-label="Anchor link for: microservices-architecture" style="visibility: hidden;"></a>
+</h2>
+<p>Microservices architecture defines how multiple microservices work together as a single, cohesive system.</p>
+<p>The real complexity and innovation lie not in the individual services themselves, but in the architecture — the way these independent pieces are organized and communicate.</p>
+<p>If a microservice is a building block, then microservices architecture is the blueprint that determines how those blocks fit and interact to form a stable, scalable structure.</p>
+<p><img src="https://yurace.pro/posts/microservices/./microservices-architecture.png" alt="Microservices architecture" /></p>
+<p>While microservices solved many of the fundamental problems of monolithic systems, they also introduced a whole new set of challenges.</p>
+<p>The simplicity of a single codebase was replaced by operational complexity — the need to automate deployment for hundreds of independent services, establish reliable inter-service communication, and maintain data consistency across a distributed system.</p>
+<p>These challenges forced engineering teams to rethink how software is built and delivered. Out of that shift came <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/DevOps">DevOps</a> practices, bringing automation and structure to modern development: <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/CI/CD">CI/CD</a> pipelines for continuous integration and delivery, <a rel="nofollow noreferrer" href="https://www.redhat.com/en/topics/containers/what-is-container-orchestration">container orchestration</a> with tools like <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Kubernetes">Kubernetes</a> and specialized infrastructure management systems designed to handle the scale and dynamics of microservice environments.</p>
+<h2 id="comparasion">Comparasion<a class="zola-anchor" href="#comparasion" aria-label="Anchor link for: comparasion" style="visibility: hidden;"></a>
+</h2>
+<p>To better understand the difference between monoliths and microservices (their pros and cons), we can compare them based on several key characteristics:</p>
+<table><thead><tr><th>Characteristic</th><th>Description</th><th>Monolith</th><th>Microservices</th></tr></thead><tbody>
+<tr><td>MVP Development</td><td>Speed and simplicity of building a <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Minimum_viable_product">minimum viable product</a>.</td><td>🟢 <strong>Fast</strong> <br>Single codebase, simple to develop, test, and deploy.</td><td>🟡 <strong>Medium</strong> <br>Overhead of distributed system slows initial speed, but allows focused MVPs per service.</td></tr>
+<tr><td>Scalability &amp; Distribution</td><td>Ability to scale components independently and distribute across servers.</td><td>🔴 <strong>Hard</strong> <br>Entire application scaled as a single unit, even if only one module is under load.</td><td>🟢 <strong>Excellent</strong> <br>Individual services can be scaled independently based on their specific demand.</td></tr>
+<tr><td>Deployment Independence</td><td>Ability to deploy one part of the system without redeploying everything.</td><td>⚫ <strong>Impossible</strong> <br>A small change requires rebuilding and redeploying the entire system.</td><td>🟢 <strong>Excellent</strong> <br>Services can be deployed independently, enabling rapid, continuous delivery.</td></tr>
+<tr><td>Resilience &amp; Fault Isolation</td><td>System's ability to withstand and contain failures.</td><td>🔴 <strong>Hard</strong> <br>A bug in one module can bring down the entire application (single point of failure).</td><td>🟡 <strong>Medium</strong> <br>Failures are isolated to a single service. Requires careful design (<a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern">circuit breakers</a>) to prevent cascading failures.</td></tr>
+<tr><td>Data Consistency Model</td><td>How data integrity is maintained across the system.</td><td>🟢 <strong>Easy</strong> <br><a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/ACID">ACID</a> Transactions. Single database ensures strong consistency.</td><td>🔴 <strong>Hard</strong> <br>Eventual consistency. Each service has its own database. Maintaining consistency requires complex patterns.</td></tr>
+<tr><td>Communication Overhead</td><td>Network and data exchange latency between components.</td><td>🟢 <strong>Low</strong> <br>In-memory method calls are fast and reliable.</td><td>🔴 <strong>High</strong> <br>Network calls (API, RPC, messaging) are slower, less reliable, and add latency.</td></tr>
+<tr><td>Operational Complexity</td><td>Effort required to monitor, log, deploy, and maintain the system.</td><td>🟢 <strong>Low</strong> <br>Single codebase to deploy, monitor, and log. Centralized configuration and debugging.</td><td>🔴 <strong>High</strong> <br>Multiple services to deploy, coordinate, monitor, and debug. Requires distributed <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Tracing_(software)">tracing</a>, <a rel="nofollow noreferrer" href="https://en.wikipedia.org/wiki/Service_discovery">service discovery</a>, and complex CI/CD.</td></tr>
+<tr><td>Technology Flexibility</td><td>Freedom to use different tech stacks (languages, databases) per component.</td><td>⚫ <strong>Impossible</strong> <br>Typically locked into a single technology stack for the entire application.</td><td>🟢 <strong>Excellent</strong> <br>Each service can use the technology best suited for its specific job.</td></tr>
+<tr><td>Security Exposure</td><td>Surface area for attacks and complexity of securing the system.</td><td>🟡 <strong>Medium</strong> <br>Smaller attack surface but a single breach can compromise everything.</td><td>🔴 <strong>Hard</strong> <br>Larger attack surface (network communication). Requires robust API security, service identity, and <a rel="nofollow noreferrer" href="https://www.redhat.com/en/topics/devops/what-is-secrets-management">secrets management</a>.</td></tr>
+<tr><td>Testing</td><td>Complexity of writing and executing tests.</td><td>🟢 <strong>Easy</strong> <br>Easier to test end-to-end since all logic runs in one process and environment.</td><td>🔴 <strong>Hard</strong> <br>Requires testing per service + contract testing + network failure simulation + distributed integration testing.</td></tr>
+<tr><td>Evolution (growth)</td><td>Ease of making changes and organizing development teams.</td><td>🔴 <strong>Hard</strong> <br>Tight coupling makes changes risky. Teams often work on the same codebase, causing coordination overhead.</td><td>🟢 <strong>Easy</strong> <br>Teams own their services end-to-end, enabling parallel work and faster evolution.</td></tr>
+<tr><td>Cost Efficiency</td><td>Overall development and infrastructure cost at scale.</td><td>🟢 <strong>Cheap</strong> <br>Low infrastructure and operational overhead.</td><td>🟡 <strong>Medium</strong> <br>Higher infrastructure and DevOps costs, but can be more cost-effective at large scale due to efficient resource usage.</td></tr>
+</tbody></table>
+<p>There’s no such thing as a “perfect” architecture. There are only trade-offs that make sense in specific contexts.</p>
+<p>If you’re building a startup and speed to market is your top priority, a monolith can be your best friend. It’s simpler, faster to develop, and doesn’t require heavy infrastructure from day one. Yes, it comes with scaling limitations — but at an early stage, that’s rarely your biggest problem.</p>
+<p>For large organizations, it’s a completely different story. When you have dozens of teams, millions of users, and a high release cadence, the weaknesses of a monolith start to show. That’s when microservices begin to make sense: they bring team autonomy, flexibility in technology choices, and the ability to scale specific parts of the system independently.</p>
+<p>The right choice depends on what you’re willing to trade off and what truly matters to you. Figure out which challenges you can handle effectively — and which ones might be beyond your power.</p>
+
+      </article>
+
+      
+      
+
+      
+      
+    </div>
+
+    
+
+
+<footer>
+  <div class="left">
+    <div class="copyright">
+      © 2025 Yurace
+      
+      <span>|</span>
+      Built with <a href="https://www.getzola.org" rel="noreferrer" target="_blank">zola</a> and <a href="https://github.com/isunjn/serene" rel="noreferrer" target="_blank">serene</a>
+      
+    </div>
+  </div>
+
+  <div class="right">
+    
+    
+      
+    
+    
+    <a id="rss-btn" href="https://yurace.pro/posts/feed.xml">RSS</a>
+    
+    
+
+    
+    
+    
+    <button id="theme-toggle" aria-label="theme switch">
+      <span class="moon-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z" fill="currentColor"></path></svg>
+</span>
+      <span class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z" fill="currentColor"></path></svg>
+</span>
+    </button>
+    
+  </div>
+</footer>
+
+
+
+
+<dialog id="rss-mask">
+  <div>
+    <a href="https:&#x2F;&#x2F;yurace.pro&#x2F;posts&#x2F;feed.xml">https:&#x2F;&#x2F;yurace.pro&#x2F;posts&#x2F;feed.xml</a>
+    
+    
+    <button autofocus aria-label="copy" data-link="https:&#x2F;&#x2F;yurace.pro&#x2F;posts&#x2F;feed.xml" data-copy-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" data-check-icon="&lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;path d=&quot;M10.0007 15.1709L19.1931 5.97852L20.6073 7.39273L10.0007 17.9993L3.63672 11.6354L5.05093 10.2212L10.0007 15.1709Z&quot; fill=&quot;currentColor&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;
+" >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M6.9998 6V3C6.9998 2.44772 7.44752 2 7.9998 2H19.9998C20.5521 2 20.9998 2.44772 20.9998 3V17C20.9998 17.5523 20.5521 18 19.9998 18H16.9998V20.9991C16.9998 21.5519 16.5499 22 15.993 22H4.00666C3.45059 22 3 21.5554 3 20.9991L3.0026 7.00087C3.0027 6.44811 3.45264 6 4.00942 6H6.9998ZM5.00242 8L5.00019 20H14.9998V8H5.00242ZM8.9998 6H16.9998V16H18.9998V4H8.9998V6Z" fill="currentColor"></path></svg>
+
+    </button>
+  </div>
+</dialog>
+
+
+
+  </main>
+</div>
+
+  
+<script src="/js/lightense.min.js"></script>
+
+
+  <script src="https://yurace.pro/js/main.js"></script>
+</body>
+
+</html>
